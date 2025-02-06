@@ -18,6 +18,7 @@ public class CompensationController {
     @Autowired
     private CompensationService compensationService;
 
+    // todo how would we want to handle adding a compensation to an employee id that already has one?
     @PostMapping("/compensation")
     public Compensation create(@RequestBody Compensation compensation) {
         LOG.debug("Received compensation create request for [{}]", compensation);
