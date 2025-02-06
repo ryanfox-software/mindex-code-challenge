@@ -19,6 +19,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public Employee create(Employee employee) {
+        // probably not part of the challenge, but this is something I like to check during code reviews, 
+        // so I'll just put a comment in code
+        // is there any risk of logging sensitive data here? (employee name)
         LOG.debug("Creating employee [{}]", employee);
 
         employee.setEmployeeId(UUID.randomUUID().toString());
