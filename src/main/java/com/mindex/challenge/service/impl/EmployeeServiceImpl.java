@@ -55,7 +55,24 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public ReportingStructure report(String id) {
-        //todo
-        return new ReportingStructure();
+        Employee employee = employeeRepository.findByEmployeeId(id);
+
+        if (employee == null) {
+            throw new RuntimeException("Invalid employeeId: " + id);
+        }
+        return new ReportingStructure(employee, numberOfReports(employee));
+    }
+
+    private int numberOfReports(Employee employee) {
+        int reports = 0;
+        
+        if (employee != null && employee.getDirectReports() != null) {
+            for (Employee report : employee.getDirectReports()) {
+                reports++;
+                reports += numberOfReports(report);
+            }
+        }
+
+        return reports;
     }
 }
