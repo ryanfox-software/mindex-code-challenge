@@ -18,6 +18,8 @@ public class EmployeeServiceImpl implements EmployeeService {
     private EmployeeRepository employeeRepository;
 
     @Override
+    // In a real application, we may consider having some authorization checks in the service, maybe using
+    // @preauthorize
     public Employee create(Employee employee) {
         // probably not part of the challenge, but this is something I like to check during code reviews, 
         // so I'll just put a comment in code
