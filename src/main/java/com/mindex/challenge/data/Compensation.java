@@ -13,7 +13,7 @@ public class Compensation {
     public Compensation() {
     }
 
-    public Compensation(String compensationId, String employeeId, String salary, String effectiveDate) {
+    public Compensation(String employeeId, String salary, String effectiveDate) {
         this.employeeId = employeeId;
         this.salary = salary;
         this.effectiveDate = effectiveDate;
